@@ -11,6 +11,6 @@
   [SortOrder] [int] NULL,
   [StoreID] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_GenPurchaseOrder] PRIMARY KEY CLUSTERED ([GenPurchaseOrderID])
+  CONSTRAINT [PK_GenPurchaseOrder] PRIMARY KEY CLUSTERED ([GenPurchaseOrderID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

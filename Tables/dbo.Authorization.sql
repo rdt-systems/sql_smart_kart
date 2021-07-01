@@ -206,6 +206,6 @@
   [BO_ViewStatistics] [bit] NULL,
   [BO_ShowTransferOrderHis] [bit] NULL,
   [ShowOtherOnHand] [bit] NULL,
-  PRIMARY KEY CLUSTERED ([GroupID])
+  PRIMARY KEY CLUSTERED ([GroupID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

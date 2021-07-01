@@ -10,6 +10,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_PPCUsers] PRIMARY KEY CLUSTERED ([PPCUserID])
+  CONSTRAINT [PK_PPCUsers] PRIMARY KEY CLUSTERED ([PPCUserID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

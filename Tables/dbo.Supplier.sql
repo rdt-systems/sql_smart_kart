@@ -22,16 +22,18 @@
   [ListPrice] [decimal](18, 4) NULL,
   [Department] [uniqueidentifier] NULL,
   [Import] [smallint] NULL,
-  CONSTRAINT [PK_Supplier] PRIMARY KEY CLUSTERED ([SupplierID])
+  CONSTRAINT [PK_Supplier] PRIMARY KEY CLUSTERED ([SupplierID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [_dta_index_Supplier_5_1109578991__K1_K7]
   ON [dbo].[Supplier] ([SupplierID], [MainAddress])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [_dta_index_Supplier_5_1109578991__K1_K7_K3]
   ON [dbo].[Supplier] ([SupplierID], [MainAddress], [Name])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 ALTER TABLE [dbo].[Supplier] WITH NOCHECK

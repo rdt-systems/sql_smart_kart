@@ -4,6 +4,6 @@
   [DateCreated] [datetime] NULL,
   [CustomerID] [uniqueidentifier] NULL,
   [Active] [bit] NULL,
-  CONSTRAINT [PK_TxtInfo] PRIMARY KEY CLUSTERED ([ID])
+  CONSTRAINT [PK_TxtInfo] PRIMARY KEY CLUSTERED ([ID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

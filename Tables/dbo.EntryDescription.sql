@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[EntryDescription] (
   [TransactionEntryID] [uniqueidentifier] NOT NULL,
   [Description] [nvarchar](500) NULL,
-  CONSTRAINT [PK_EntryDescription] PRIMARY KEY CLUSTERED ([TransactionEntryID])
+  CONSTRAINT [PK_EntryDescription] PRIMARY KEY CLUSTERED ([TransactionEntryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 

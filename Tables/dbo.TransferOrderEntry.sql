@@ -14,6 +14,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([TransferOrderEntryID])
+  PRIMARY KEY CLUSTERED ([TransferOrderEntryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

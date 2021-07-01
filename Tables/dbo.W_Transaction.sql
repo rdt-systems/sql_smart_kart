@@ -41,6 +41,6 @@
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [TransferedToBookkeeping] [bit] NULL CONSTRAINT [DF_W_Transaction_TransferedToBookkeeping] DEFAULT (0),
-  CONSTRAINT [PK_W_Transaction] PRIMARY KEY CLUSTERED ([TransactionID])
+  CONSTRAINT [PK_W_Transaction] PRIMARY KEY CLUSTERED ([TransactionID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

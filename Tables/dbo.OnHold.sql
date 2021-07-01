@@ -22,6 +22,6 @@
   [TransNo] [nvarchar](50) NULL,
   [Qty] [decimal] NULL,
   [TotalQty] [decimal] NULL,
-  CONSTRAINT [PK_OnHold] PRIMARY KEY CLUSTERED ([OnHoldID])
+  CONSTRAINT [PK_OnHold] PRIMARY KEY CLUSTERED ([OnHoldID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

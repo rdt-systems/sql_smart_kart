@@ -4,6 +4,6 @@
   [EmailID] [uniqueidentifier] NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  PRIMARY KEY CLUSTERED ([SupplierContactToEmaillID])
+  PRIMARY KEY CLUSTERED ([SupplierContactToEmaillID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

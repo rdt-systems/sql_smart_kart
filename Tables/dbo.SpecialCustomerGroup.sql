@@ -7,6 +7,6 @@
   [DateModified] [datetime] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_SpecialCustomerGroup] PRIMARY KEY CLUSTERED ([SpecialCustomerGroupID])
+  CONSTRAINT [PK_SpecialCustomerGroup] PRIMARY KEY CLUSTERED ([SpecialCustomerGroupID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

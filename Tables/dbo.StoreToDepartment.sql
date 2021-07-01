@@ -8,6 +8,6 @@
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_StoreToDepartment] PRIMARY KEY CLUSTERED ([StoreToDepartmentID])
+  CONSTRAINT [PK_StoreToDepartment] PRIMARY KEY CLUSTERED ([StoreToDepartmentID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

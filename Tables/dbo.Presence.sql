@@ -22,6 +22,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK__Presence__4980E84336F58766] PRIMARY KEY CLUSTERED ([PresenceID])
+  CONSTRAINT [PK__Presence__4980E84336F58766] PRIMARY KEY CLUSTERED ([PresenceID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

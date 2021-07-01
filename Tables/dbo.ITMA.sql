@@ -44,6 +44,6 @@
   [CaseBarCode] [nvarchar](25) NULL,
   [ExtraInfo2] [nvarchar](250) NULL,
   [CustomerCode] [nvarchar](50) NULL,
-  PRIMARY KEY CLUSTERED ([ItemID])
+  PRIMARY KEY CLUSTERED ([ItemID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

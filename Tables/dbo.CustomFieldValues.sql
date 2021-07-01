@@ -5,6 +5,6 @@
   [FieldValue] [nvarchar](4000) NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  PRIMARY KEY CLUSTERED ([CustomFieldValueID])
+  PRIMARY KEY CLUSTERED ([CustomFieldValueID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

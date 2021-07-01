@@ -7,6 +7,6 @@
   [Category] [int] NULL,
   [FileName] [nvarchar](50) NULL,
   [Status] [smallint] NULL,
-  CONSTRAINT [PK_EmailTemplate] PRIMARY KEY CLUSTERED ([EmailTemplateID])
+  CONSTRAINT [PK_EmailTemplate] PRIMARY KEY CLUSTERED ([EmailTemplateID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

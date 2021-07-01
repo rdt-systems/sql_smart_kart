@@ -1,8 +1,5 @@
 ﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-
-
-
 CREATE function [dbo].[ConvertMessures](@Meaasure Int, @Units decimal,@Price money) returns nvarchar(50) 
 as begin 
   DECLARE @RET varchar(50)
@@ -14,7 +11,7 @@ as begin
   ELSE IF @Meaasure=5  SET @RET=  '$'+CONVERT(nvarchar,Cast((@Price/(0.453592 * @Units))as decimal(10,2)), 110) + '\Lb.'--Kg
 
   ELSE IF @Meaasure=7   SET @RET= '$'+CONVERT(nvarchar,Cast((@Price/(1.05669 * @Units))as decimal(10,2)), 110) + '\Qt.'--Lt
-  ELSE IF @Meaasure= 20 SET @RET= '$'+CONVERT(nvarchar,Cast((@Price/(946.353 * @Units))as decimal(10,2)), 110) + '\Qt.'--Ml 
+  ELSE IF @Meaasure= 20 SET @RET= '$'+CONVERT(nvarchar,Cast(((1.39/(946.353)) * 100)as decimal(10,2)), 110) + '\Qt.'--Ml
   ELSE IF @Meaasure= 17 SET @RET= '$'+CONVERT(nvarchar,Cast((@Price/(0.03125  * @Units))as decimal(10,2)), 110) + '\Qt.'--Fl oz                  
   ELSE IF @Meaasure= 18 SET @RET= '$'+CONVERT(nvarchar,Cast((@Price/(2 * @Units))as decimal(10,2)), 110) + '\Qt.'--Pt
   ELSE IF @Meaasure= 8  SET @RET= '$'+CONVERT(nvarchar,Cast((@Price/(4 * @Units))as decimal(10,2)), 110) + '\Qt.'--Gl

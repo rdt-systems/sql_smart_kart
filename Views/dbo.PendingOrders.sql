@@ -1,7 +1,5 @@
 ﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-
-
 CREATE VIEW [dbo].[PendingOrders]
 
 AS
@@ -13,7 +11,7 @@ SELECT     DISTINCT   T.CustomerID, C.CustomerNo, C.LastName, C.FirstName, T.Tra
                          E.Qty = R.Qty THEN 'Partially Fulfilled'  WHEN ISNULL(RE.Qty, 0) = 0 AND ISNULL(ER.Qty, 0) > 0 AND ISNULL(R.Qty, 0) > 0 AND E.Qty = R.Qty AND R.Qty = ER.Qty THEN 'In Transit' END AS Status,
 						 ST.StoreName AS FromStore, T.EndSaleTime AS SaleDate, T.StoreID, 
 						 ISNULL(C.LastName, '') + ISNULL(', ' + CASE WHEN C.FirstName = '' THEN NULL 
-                         ELSE C.FirstName END, ' ') AS FullName, A.PhoneNumber1, A.PhoneNumber2
+                         ELSE C.FirstName END, ' ') AS FullName, A.PhoneNumber1, A.PhoneNumber2,TI.TransferNo
 FROM            dbo.ReceiveTransferEntry AS RE WITH (NOLOCK) INNER JOIN
                          dbo.ReceiveTransfer AS RT WITH (NOLOCK)  ON RE.ReceiveTransferID = RT.ReceiveTransferID AND RE.Status > 0 AND RT.Status > 0 RIGHT OUTER JOIN
                          dbo.TransferItems AS TI WITH (NOLOCK)  INNER JOIN

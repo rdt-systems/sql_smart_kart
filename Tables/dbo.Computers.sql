@@ -12,6 +12,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_Computers] PRIMARY KEY CLUSTERED ([ComputerID])
+  CONSTRAINT [PK_Computers] PRIMARY KEY CLUSTERED ([ComputerID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

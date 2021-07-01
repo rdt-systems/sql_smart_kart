@@ -8,6 +8,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([NoteID])
+  PRIMARY KEY CLUSTERED ([NoteID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

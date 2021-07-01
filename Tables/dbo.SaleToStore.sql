@@ -8,6 +8,6 @@
   [StoreID] [uniqueidentifier] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModifed] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_SaleToStore] PRIMARY KEY CLUSTERED ([SaleToStoreID])
+  CONSTRAINT [PK_SaleToStore] PRIMARY KEY CLUSTERED ([SaleToStoreID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

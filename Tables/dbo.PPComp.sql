@@ -13,6 +13,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_PPComp] PRIMARY KEY CLUSTERED ([PPCompID])
+  CONSTRAINT [PK_PPComp] PRIMARY KEY CLUSTERED ([PPCompID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

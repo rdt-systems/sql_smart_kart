@@ -1,9 +1,8 @@
 ﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-
 CREATE  VIEW [dbo].[ItemMainAndStoreGrid]
 AS
-SELECT    distinct dbo.ItemMainView.ItemID, ItemMainView.Name, dbo.ItemMainView.ModalNumber, dbo.ItemMainView.LinkNo, dbo.ItemMainView.BarcodeNumber, ItemMainView.custominteger1,
+SELECT    distinct dbo.ItemMainView.ItemID, ItemMainView.Name,ItemMainView.Description, dbo.ItemMainView.ModalNumber, dbo.ItemMainView.LinkNo, dbo.ItemMainView.BarcodeNumber, ItemMainView.custominteger1,
                       dbo.ItemStoreView.StoreNo,store.StoreName,store.storeNumber, dbo.ItemStoreView.IsTaxable, dbo.ItemStoreView.IsDiscount, dbo.ItemStoreView.IsFoodStampable, dbo.ItemStoreView.IsWIC, 
                       dbo.ItemStoreView.Cost, dbo.ItemStoreView.Price, dbo.ItemMainView.CaseQty, dbo.ItemMainView.PriceByCase, dbo.ItemMainView.StyleNo, 
                       dbo.ItemMainView.CostByCase, dbo.ItemMainView.CaseBarcodeNumber, dbo.ItemStoreView.OnHand, CAST(CASE WHEN ISNULL(ItemMainView.CaseQty, 1) > 0 AND 

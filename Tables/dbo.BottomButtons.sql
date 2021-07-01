@@ -10,7 +10,7 @@
   [ColorCode] [int] NOT NULL,
   [FontSize] [int] NULL,
   [PromptQty] [bit] NULL,
-  CONSTRAINT [PK_BottomButtons] PRIMARY KEY CLUSTERED ([ButtonID])
+  CONSTRAINT [PK_BottomButtons] PRIMARY KEY CLUSTERED ([ButtonID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 

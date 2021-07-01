@@ -4,6 +4,6 @@
   [PhoneID] [uniqueidentifier] NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  PRIMARY KEY CLUSTERED ([CostumerToPhoneID])
+  PRIMARY KEY CLUSTERED ([CostumerToPhoneID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

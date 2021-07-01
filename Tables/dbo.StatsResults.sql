@@ -13,4 +13,5 @@ GO
 
 CREATE INDEX [IX_StatsResults]
   ON [dbo].[StatsResults] ([StatId], [StoreID], [UserId])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

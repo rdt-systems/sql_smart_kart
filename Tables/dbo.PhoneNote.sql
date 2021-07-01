@@ -4,6 +4,6 @@
   [Type] [smallint] NULL,
   [Sort] [smallint] NULL,
   [Status] [smallint] NULL CONSTRAINT [DF_PhoneNote_Status] DEFAULT (1),
-  CONSTRAINT [PK_PhoneNote] PRIMARY KEY CLUSTERED ([PhoneNoteIDVal])
+  CONSTRAINT [PK_PhoneNote] PRIMARY KEY CLUSTERED ([PhoneNoteIDVal]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

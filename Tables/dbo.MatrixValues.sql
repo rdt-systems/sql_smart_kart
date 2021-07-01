@@ -5,7 +5,7 @@
   [SortValue] [int] NULL,
   [Status] [smallint] NULL,
   [Code] [nvarchar](25) NULL,
-  CONSTRAINT [PK_MatrixValues] PRIMARY KEY CLUSTERED ([MatrixValueID]),
+  CONSTRAINT [PK_MatrixValues] PRIMARY KEY CLUSTERED ([MatrixValueID]) WITH (STATISTICS_NORECOMPUTE = ON),
   CONSTRAINT [CK_DisplayValue] CHECK ([DisplayValue]<>N'')
 )
 GO

@@ -27,23 +27,27 @@
   [UserEditing] [uniqueidentifier] NULL,
   [StartEditing] [datetime] NULL,
   [TenderID] [int] NULL,
-  CONSTRAINT [PK_PhoneOrder] PRIMARY KEY CLUSTERED ([PhoneOrderID])
+  CONSTRAINT [PK_PhoneOrder] PRIMARY KEY CLUSTERED ([PhoneOrderID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_PhoneOrder_1]
   ON [dbo].[PhoneOrder] ([CustomerID], [DeliveryDate], [Status])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PhoneOrder_2]
   ON [dbo].[PhoneOrder] ([PhoneOrderNo])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PhoneOrder_Type_001]
   ON [dbo].[PhoneOrder] ([TransactionID])
   INCLUDE ([Type])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PhoneOrder_WebExport_005]
   ON [dbo].[PhoneOrder] ([PhoneOrderStatus], [Status])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

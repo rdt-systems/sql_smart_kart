@@ -8,6 +8,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([SeasonEntryId])
+  PRIMARY KEY CLUSTERED ([SeasonEntryId]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

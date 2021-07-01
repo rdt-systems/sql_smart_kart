@@ -22,45 +22,53 @@
   [SpecialCost] [money] NULL,
   [Discount] [money] NULL,
   [DiscountType] [int] NULL,
-  CONSTRAINT [PK_PurchaseOrderEntry] PRIMARY KEY CLUSTERED ([PurchaseOrderEntryId])
+  CONSTRAINT [PK_PurchaseOrderEntry] PRIMARY KEY CLUSTERED ([PurchaseOrderEntryId]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_PurchaseOrderEntry_ItemNo]
   ON [dbo].[PurchaseOrderEntry] ([ItemNo])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PurchaseOrderEntry_Speed_00001]
   ON [dbo].[PurchaseOrderEntry] ([PurchaseOrderNo], [Status])
   INCLUDE ([ItemNo], [QtyOrdered])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PurchaseOrderEntry_Speed_PO_005]
   ON [dbo].[PurchaseOrderEntry] ([Status])
   INCLUDE ([PurchaseOrderNo], [ItemNo], [UOMQty])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PurchaseOrderEntry_Speed_PO_006]
   ON [dbo].[PurchaseOrderEntry] ([PurchaseOrderNo], [Status])
   INCLUDE ([ItemNo], [UOMQty])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PurchaseOrderNo_Status]
   ON [dbo].[PurchaseOrderEntry] ([PurchaseOrderNo], [Status])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [nci_wi_PurchaseOrderEntry_F737EB38ACCC41D0CEC7621991B20448]
   ON [dbo].[PurchaseOrderEntry] ([PurchaseOrderNo], [Status])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [POLoads]
   ON [dbo].[PurchaseOrderEntry] ([Status])
   INCLUDE ([QtyOrdered], [PurchaseOrderNo], [PurchaseOrderEntryId])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [POLoads2]
   ON [dbo].[PurchaseOrderEntry] ([PurchaseOrderNo], [Status])
   INCLUDE ([QtyOrdered], [PurchaseOrderEntryId])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 ALTER TABLE [dbo].[PurchaseOrderEntry]

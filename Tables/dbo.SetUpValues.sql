@@ -18,12 +18,15 @@ GO
 
 CREATE UNIQUE INDEX [IX_SetUpValues_ix1]
   ON [dbo].[SetUpValues] ([StoreID], [OptionName])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE UNIQUE INDEX [IX_SetUpValues_ix2]
   ON [dbo].[SetUpValues] ([StoreID], [OptionID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_SetUpValues_OptionID]
   ON [dbo].[SetUpValues] ([OptionID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

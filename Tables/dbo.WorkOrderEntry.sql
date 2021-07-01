@@ -16,6 +16,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK__WorkOrderEntry__44AB0736] PRIMARY KEY CLUSTERED ([WorkOrderEntryID])
+  CONSTRAINT [PK__WorkOrderEntry__44AB0736] PRIMARY KEY CLUSTERED ([WorkOrderEntryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -7,6 +7,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([CustomerMessageID])
+  PRIMARY KEY CLUSTERED ([CustomerMessageID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

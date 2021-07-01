@@ -30,6 +30,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([WorkOrderID])
+  PRIMARY KEY CLUSTERED ([WorkOrderID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -31,6 +31,6 @@
   [Email] [varchar](50) NULL,
   [Tender] [varchar](150) NULL,
   [ShipPhone] [varchar](50) NULL,
-  PRIMARY KEY CLUSTERED ([InvoiceID])
+  PRIMARY KEY CLUSTERED ([InvoiceID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

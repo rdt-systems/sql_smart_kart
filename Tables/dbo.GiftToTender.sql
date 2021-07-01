@@ -7,6 +7,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_GiftToTender] PRIMARY KEY CLUSTERED ([GiftToTenderID])
+  CONSTRAINT [PK_GiftToTender] PRIMARY KEY CLUSTERED ([GiftToTenderID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

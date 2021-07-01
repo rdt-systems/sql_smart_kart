@@ -16,20 +16,23 @@
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [OnHand] [decimal](19, 3) NULL,
-  CONSTRAINT [PK_PhoneOrderEntry] PRIMARY KEY CLUSTERED ([PhoneOrderEntryID])
+  CONSTRAINT [PK_PhoneOrderEntry] PRIMARY KEY CLUSTERED ([PhoneOrderEntryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_PhoneOrderEntry_PickSheet_Print_Speed]
   ON [dbo].[PhoneOrderEntry] ([ItemStoreNo], [Status])
   INCLUDE ([PhoneOrderID], [Qty])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PhoneOrderEntry_WebExport_006]
   ON [dbo].[PhoneOrderEntry] ([Status])
   INCLUDE ([PhoneOrderID], [ItemStoreNo], [Qty])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [PhoneOrderEntry_ix3]
   ON [dbo].[PhoneOrderEntry] ([PhoneOrderID], [ItemStoreNo], [Status])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

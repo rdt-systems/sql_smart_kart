@@ -10,6 +10,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([TaskID])
+  PRIMARY KEY CLUSTERED ([TaskID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

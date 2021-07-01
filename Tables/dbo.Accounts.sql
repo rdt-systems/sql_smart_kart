@@ -10,11 +10,12 @@
   [test] [int] NULL,
   [Test123] [nchar](10) NULL,
   [TetsUnick] [nvarchar](50) NULL,
-  CONSTRAINT [PK_Accounts] PRIMARY KEY CLUSTERED ([AccountID])
+  CONSTRAINT [PK_Accounts] PRIMARY KEY CLUSTERED ([AccountID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE UNIQUE INDEX [UniqueExceptNulls]
   ON [dbo].[Accounts] ([TetsUnick])
   WHERE ([TetsUnick] IS NOT NULL)
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

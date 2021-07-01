@@ -11,6 +11,6 @@
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [QBNumber] [nvarchar](50) NULL,
-  CONSTRAINT [PK_PayToBill] PRIMARY KEY CLUSTERED ([PayToBillID])
+  CONSTRAINT [PK_PayToBill] PRIMARY KEY CLUSTERED ([PayToBillID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -7,6 +7,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([AdjustID])
+  PRIMARY KEY CLUSTERED ([AdjustID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

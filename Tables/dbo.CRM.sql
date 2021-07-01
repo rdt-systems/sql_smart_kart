@@ -9,6 +9,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_CRM] PRIMARY KEY CLUSTERED ([CRMID])
+  CONSTRAINT [PK_CRM] PRIMARY KEY CLUSTERED ([CRMID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

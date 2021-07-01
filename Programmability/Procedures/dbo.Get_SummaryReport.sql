@@ -14,12 +14,15 @@ AS
  DECLARE @AR decimal(9,3)
  DECLARE @Payout decimal(9,3)
  DECLARE @Payments decimal(9,3)
+ DECLARE @Shipping decimal(9,3)
 
 IF @Store = '00000000-0000-0000-0000-000000000000'
 SET @Store = NULL
 
 SET @Sale =(Select (ISNULL(SUM(TotalAfterDiscount),0)) AS Total from TransactionEntryItem WHere EndSaleTime > = @From and EndSaleTime < @To and (StoreID = @Store OR @Store IS NULL))
-SET @Tax =(Select SUM(ROUND(ISNULL(Tax,0),2)) AS Total from [Transaction] T WHere TransactionType <> 4 AND Status > 0 and EndSaleTime > = @From and EndSaleTime < @To and (StoreID = @Store OR @Store IS NULL))
+SET @Tax =(Select SUM(ROUND(ISNULL(Tax,0),2)) AS Total from [Transaction] T WHere TransactionType <> 4 AND Status > 0 and EndSaleTime > = @From and EndSaleTime < @To and (StoreID = @Store OR @Store IS NULL)) + 
+(Select ISNULL(SUM(TotalAfterDiscount),0) As Total from TransactionEntryItem Where
+ItemType = 3 AND ModalNumber = 'TAX' AND EndSaleTime > = @From and EndSaleTime < @To and (StoreID = @Store OR @Store IS NULL)) 
 SET @Gift =(Select ISNULL(SUM(ISNULL(Total,0)),0) From dbo.TransactionEntry AS E WITH (NOLOCK) INNER JOIN dbo.[Transaction] AS T WITH (NOLOCK) on E.TransactionID = T.TransactionID INNER JOIN dbo.Store S ON T.StoreID = S.StoreID
             WHERE  (E.Status > 0) AND (T.Status > 0) AND (TransactionEntryType = 5) AND TransactionType <> 4 AND EndSaleTime > = @From and EndSaleTime < @To and (T.StoreID = @Store OR @Store IS NULL))
 SET @TagAlong =(SELECT ISNULL(SUM(ISNULL(TotalAfterDiscount,0)),0)
@@ -32,6 +35,8 @@ SET @AR=(Select (CASE WHEN ISNULL(SUM(ISNULL(T.Debit,0)) -SUM(ISNULL(T.Credit,0)
 	from [Transaction] T WHere Status > 0 and TransactionType<>4 and TransactionType<>2 and ISNULL(Debit,0) - ISNULL(Credit,0) > 0 and  EndSaleTime > = @From and EndSaleTime < @To and (StoreID = @Store OR @Store IS NULL))
 SET @Payments =(Select SUM(IsNull(Credit,0) - IsNull(Debit,0))  from [Transaction] T WHere Status > 0 
 	and TransactionType<>4 and TransactionType<>2 and ISNULL(Credit,0) - ISNULL(Debit,0) >0 and EndSaleTime > = @From and EndSaleTime < @To and (StoreID = @Store OR @Store IS NULL))
+SET @Shipping = (Select SUM(TotalAfterDiscount) As Total from TransactionEntryItem Where
+ItemType = 3 AND ModalNumber = 'SHIPPING' AND EndSaleTime > = @From and EndSaleTime < @To and (StoreID = @Store OR @Store IS NULL))
 
 
 
@@ -67,9 +72,15 @@ SELECT 'Tag Along' AS  Description, FORMAT(IsNull(@TagAlong,0),N'c') AS Total,
 
 UNION ALL
 
-Select 'Total' AS Description,  FORMAT(@Sale+@tax+@Gift+@TagAlong,N'c') AS Total,
+SELECT 'Shipping Charge' AS  Description, FORMAT(IsNull(@Shipping,0),N'c') AS Total,
  
-  3.2  AS Sort 
+  3.2 AS Sort  
+
+UNION ALL
+
+Select 'Total' AS Description,  FORMAT(@Sale+ISNULL(@tax,0)+@Gift+@TagAlong+ISNULL(@Shipping,0),N'c') AS Total,
+ 
+  3.3  AS Sort 
 
 UNION ALL
 

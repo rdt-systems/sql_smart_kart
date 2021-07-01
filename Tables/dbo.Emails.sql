@@ -20,6 +20,6 @@
   [ErrorMessage] [nvarchar](500) NULL,
   [TransactionID] [uniqueidentifier] NULL,
   [EmailText] [nvarchar](4000) NULL,
-  PRIMARY KEY CLUSTERED ([EmailID])
+  PRIMARY KEY CLUSTERED ([EmailID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

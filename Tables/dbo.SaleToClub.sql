@@ -7,6 +7,6 @@
   [Status] [smallint] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([ClubID])
+  PRIMARY KEY CLUSTERED ([ClubID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -22,6 +22,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [cellphone] [nvarchar](20) NULL,
   [Ext3] [nvarchar](20) NULL,
-  CONSTRAINT [PK_SupplierAddresses] PRIMARY KEY CLUSTERED ([AddressID])
+  CONSTRAINT [PK_SupplierAddresses] PRIMARY KEY CLUSTERED ([AddressID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -9,6 +9,6 @@
   [UserCreate] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [Status] [int] NULL,
-  CONSTRAINT [PK_ReceiveTransfer] PRIMARY KEY CLUSTERED ([ReceiveTransferID])
+  CONSTRAINT [PK_ReceiveTransfer] PRIMARY KEY CLUSTERED ([ReceiveTransferID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

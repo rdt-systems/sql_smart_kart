@@ -7,6 +7,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_MatrixTable] PRIMARY KEY CLUSTERED ([MatrixTableID])
+  CONSTRAINT [PK_MatrixTable] PRIMARY KEY CLUSTERED ([MatrixTableID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

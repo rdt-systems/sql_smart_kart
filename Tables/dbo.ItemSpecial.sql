@@ -16,17 +16,19 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_ItemSpecial] PRIMARY KEY CLUSTERED ([ItemSpecialID])
+  CONSTRAINT [PK_ItemSpecial] PRIMARY KEY CLUSTERED ([ItemSpecialID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE UNIQUE INDEX [ItemStoreID_Unique]
   ON [dbo].[ItemSpecial] ([ItemStoreID])
   WHERE ([ItemStoreID] IS NOT NULL AND [Status]>(-1))
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_ItemSpecial]
   ON [dbo].[ItemSpecial] ([ItemStoreID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 ALTER TABLE [dbo].[ItemSpecial]

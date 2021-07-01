@@ -39,8 +39,20 @@
   [AutoAssign] [bit] NULL,
   [MinQty] [int] NULL,
   [DiscountInt] [int] IDENTITY,
-  CONSTRAINT [PK_Discounts] PRIMARY KEY CLUSTERED ([DiscountID])
+  CONSTRAINT [PK_Discounts] PRIMARY KEY CLUSTERED ([DiscountID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
+GO
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+CREATE trigger [Tr_DeleteDiscounts] on [dbo].[Discounts]
+for  update
+as
+if   Update (Status) AND ((select count(0) from inserted WHERE STATUS <1) > 0)
+  begin
+    INSERT INTO DeleteRecordes (TableID, TableName, Status, DateModified, IsGuid,FieldName)
+	SELECT DiscountID, 'Discounts' , Status, dbo.GetLocalDATE() , 1,'DiscountID' FROM      inserted
+  end
 GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
@@ -88,12 +100,7 @@ GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-CREATE trigger [Tr_DeleteDiscounts] on [dbo].[Discounts]
-for  update
-as
-if   Update (Status) AND ((select count(0) from inserted WHERE STATUS <1) > 0)
-  begin
-    INSERT INTO DeleteRecordes (TableID, TableName, Status, DateModified, IsGuid,FieldName)
-	SELECT DiscountID, 'Discounts' , Status, dbo.GetLocalDATE() , 1,'DiscountID' FROM      inserted
-  end
+
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO

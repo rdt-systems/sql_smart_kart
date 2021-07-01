@@ -3,6 +3,6 @@
   [SortValue] [int] NULL,
   [Status] [smallint] NULL,
   [Code] [nvarchar](25) NULL,
-  CONSTRAINT [PK_MatrixColors] PRIMARY KEY CLUSTERED ([DisplayValue])
+  CONSTRAINT [PK_MatrixColors] PRIMARY KEY CLUSTERED ([DisplayValue]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

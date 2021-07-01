@@ -41,6 +41,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL CONSTRAINT [DF_Resellers_DateModified] DEFAULT (getdate()),
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_Resellers] PRIMARY KEY CLUSTERED ([ResellerID])
+  CONSTRAINT [PK_Resellers] PRIMARY KEY CLUSTERED ([ResellerID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

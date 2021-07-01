@@ -5,6 +5,6 @@
   [SortValue] [int] NULL,
   [Status] [smallint] NULL,
   [Code] [nvarchar](25) NULL,
-  PRIMARY KEY CLUSTERED ([MatrixValueID])
+  PRIMARY KEY CLUSTERED ([MatrixValueID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

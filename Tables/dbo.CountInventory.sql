@@ -7,11 +7,12 @@
   [DateCreated] [datetime] NULL,
   [DateModified] [datetime] NULL,
   [CountID] [uniqueidentifier] NULL,
-  CONSTRAINT [PK__CountInv__A82004F041E3A924] PRIMARY KEY CLUSTERED ([CountInventoryID])
+  CONSTRAINT [PK__CountInv__A82004F041E3A924] PRIMARY KEY CLUSTERED ([CountInventoryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE UNIQUE INDEX [IX_CountInventory]
   ON [dbo].[CountInventory] ([CountID])
   WHERE ([Status]>(-1) AND [CountID] IS NOT NULL)
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

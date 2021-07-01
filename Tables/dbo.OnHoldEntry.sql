@@ -4,7 +4,7 @@
   [CaseItem] [bit] NULL,
   [Cost] [money] NULL,
   [dAmount] [money] NULL,
-  [dDescription] [nvarchar](550) NULL,
+  [dDescription] [nvarchar](1550) NULL,
   [dDiscountID] [nvarchar](50) NULL,
   [dDiscountType] [int] NULL,
   [DefaultPrice] [money] NULL,

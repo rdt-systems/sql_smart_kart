@@ -1,0 +1,3 @@
+﻿CREATE USER [Shaanuet]
+  WITHOUT LOGIN
+GO

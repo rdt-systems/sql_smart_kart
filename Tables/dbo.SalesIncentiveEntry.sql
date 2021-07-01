@@ -10,6 +10,6 @@
   [DateModified] [datetime] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_SalesIncentiveEntry] PRIMARY KEY CLUSTERED ([SalesIncentiveEntryID])
+  CONSTRAINT [PK_SalesIncentiveEntry] PRIMARY KEY CLUSTERED ([SalesIncentiveEntryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

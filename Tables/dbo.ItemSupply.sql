@@ -26,32 +26,36 @@
   [MaxQty] [int] NULL,
   [UOMType] [int] NULL,
   [ColorName] [nvarchar](50) NULL,
-  CONSTRAINT [PK_ItemSupply] PRIMARY KEY CLUSTERED ([ItemSupplyID])
+  CONSTRAINT [PK_ItemSupply] PRIMARY KEY CLUSTERED ([ItemSupplyID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [_dta_index_ItemSupply_5_238623893__K3_K12_K10]
   ON [dbo].[ItemSupply] ([SupplierNo], [Status], [IsMainSupplier])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [_dta_index_ItemSupply_5_718625603__K3_K11_K13_K1_10]
   ON [dbo].[ItemSupply] ([SupplierNo], [IsMainSupplier], [Status], [ItemSupplyID])
   INCLUDE ([ItemCode])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_ItemSupply_Status]
   ON [dbo].[ItemSupply] ([Status])
   INCLUDE ([ItemStoreNo], [SupplierNo], [TotalCost], [GrossCost], [MinimumQty], [QtyPerCase], [IsOrderedOnlyInCase], [AverageDeliveryDelay], [ItemCode], [IsMainSupplier], [SortOrder], [DateCreated], [UserCreated], [DateModified], [UserModified], [CaseQty], [SalePrice], [AssignDate], [FromDate], [ToDate], [OnSpecialReq], [MinQty], [MaxQty], [ColorName])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_ItemSupply_TransactionEntryItem_Speed_1]
   ON [dbo].[ItemSupply] ([SupplierNo], [Status])
   INCLUDE ([ItemStoreNo], [ItemCode])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE UNIQUE INDEX [IX_ItemSupplyItemSupplier]
   ON [dbo].[ItemSupply] ([ItemStoreNo], [SupplierNo])
-  WHERE ([Status]>(-1))
+  WHERE ([Status]>(0))
 GO
 
 CREATE UNIQUE INDEX [IX_ItemSupplyMainSupplier]
@@ -62,21 +66,25 @@ GO
 CREATE INDEX [IX_Supplier_Main_Mis]
   ON [dbo].[ItemSupply] ([IsMainSupplier], [Status])
   INCLUDE ([ItemStoreNo], [SupplierNo], [TotalCost], [GrossCost], [MinimumQty], [QtyPerCase], [IsOrderedOnlyInCase], [AverageDeliveryDelay], [ItemCode], [SortOrder], [DateCreated], [UserCreated], [DateModified], [UserModified], [CaseQty], [SalePrice], [AssignDate], [FromDate], [ToDate], [OnSpecialReq], [MinQty], [MaxQty], [UOMType], [ColorName])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IxItemSupply_Speed_001]
   ON [dbo].[ItemSupply] ([Status])
   INCLUDE ([AssignDate], [AverageDeliveryDelay], [CaseQty], [ColorName], [DateCreated], [DateModified], [FromDate], [GrossCost], [IsMainSupplier], [IsOrderedOnlyInCase], [ItemCode], [ItemStoreNo], [ItemSupplyID], [MaxQty], [MinimumQty], [MinQty], [OnSpecialReq], [QtyPerCase], [SalePrice], [SortOrder], [SupplierNo], [ToDate], [TotalCost], [UOMType], [UserCreated], [UserModified])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [missing_index_4063_4062_ItemSupply]
   ON [dbo].[ItemSupply] ([ItemStoreNo], [IsMainSupplier], [Status])
   INCLUDE ([DateModified], [ItemCode], [ItemSupplyID], [SupplierNo])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [missing_index_4065_4064_ItemSupply]
   ON [dbo].[ItemSupply] ([IsMainSupplier], [Status])
   INCLUDE ([DateModified], [ItemCode], [ItemStoreNo], [ItemSupplyID], [SupplierNo])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON

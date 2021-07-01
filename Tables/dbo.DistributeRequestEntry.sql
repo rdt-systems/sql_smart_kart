@@ -8,6 +8,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_DistributeRequestEntry] PRIMARY KEY CLUSTERED ([DistributeRequestEntryID])
+  CONSTRAINT [PK_DistributeRequestEntry] PRIMARY KEY CLUSTERED ([DistributeRequestEntryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

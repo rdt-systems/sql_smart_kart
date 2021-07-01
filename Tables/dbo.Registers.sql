@@ -52,11 +52,12 @@
   [HideButtons] [int] NULL,
   [USAePayDevice] [nvarchar](250) NULL,
   [USAePayAPI] [int] NULL,
-  CONSTRAINT [PK_Registers] PRIMARY KEY CLUSTERED ([RegisterID])
+  CONSTRAINT [PK_Registers] PRIMARY KEY CLUSTERED ([RegisterID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE UNIQUE INDEX [Reg_RegNo]
   ON [dbo].[Registers] ([RegisterNo])
   WHERE ([Status]>(0))
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

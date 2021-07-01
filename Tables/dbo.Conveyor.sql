@@ -10,7 +10,7 @@
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [StoreID] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_Conveyor] PRIMARY KEY CLUSTERED ([ConveyorID]),
-  CONSTRAINT [IX_Conveyor1] UNIQUE ([Rack], [RowNo], [StoreID])
+  CONSTRAINT [PK_Conveyor] PRIMARY KEY CLUSTERED ([ConveyorID]) WITH (STATISTICS_NORECOMPUTE = ON),
+  CONSTRAINT [IX_Conveyor1] UNIQUE ([Rack], [RowNo], [StoreID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -8,6 +8,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([DistributeRequestID])
+  PRIMARY KEY CLUSTERED ([DistributeRequestID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

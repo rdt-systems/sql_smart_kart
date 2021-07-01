@@ -6,6 +6,6 @@
   [EventId] [bigint] NULL,
   [Message] [nvarchar](4000) NOT NULL,
   [DateCreated] [datetime] NOT NULL,
-  PRIMARY KEY CLUSTERED ([ErrorID])
+  PRIMARY KEY CLUSTERED ([ErrorID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

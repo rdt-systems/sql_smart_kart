@@ -8,6 +8,6 @@
   [RequestType] [int] NULL,
   [FromNumber] [nvarchar](50) NULL,
   [ReplyDate] [datetime] NULL,
-  CONSTRAINT [PK_TxtHistory] PRIMARY KEY CLUSTERED ([ID])
+  CONSTRAINT [PK_TxtHistory] PRIMARY KEY CLUSTERED ([ID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

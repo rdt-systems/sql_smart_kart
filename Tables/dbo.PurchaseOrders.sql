@@ -33,43 +33,50 @@
   [Import] [smallint] NULL,
   [Sent] [bit] NULL,
   [Approved] [bit] NULL,
-  CONSTRAINT [PK_PurchaseOrders] PRIMARY KEY CLUSTERED ([PurchaseOrderId])
+  CONSTRAINT [PK_PurchaseOrders] PRIMARY KEY CLUSTERED ([PurchaseOrderId]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_PO_Info]
   ON [dbo].[PurchaseOrders] ([SupplierNo])
   INCLUDE ([DateCreated], [UserCreated], [DateModified], [UserModified])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PO_Info_1]
   ON [dbo].[PurchaseOrders] ([Status])
   INCLUDE ([SupplierNo], [PurchaseOrderDate])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PO_Stuff_Speed_001]
   ON [dbo].[PurchaseOrders] ([Status])
   INCLUDE ([PoNo])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PurchaseOrders_PreSale_View_Speed_001]
   ON [dbo].[PurchaseOrders] ([Status])
   INCLUDE ([StoreNo], [POStatus])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PurchaseOrders_PreSale_View_Speed_002]
   ON [dbo].[PurchaseOrders] ([StoreNo], [Status])
   INCLUDE ([POStatus])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_PurchaseOrders_PurchaseOrderDate_Status]
   ON [dbo].[PurchaseOrders] ([PurchaseOrderDate], [Status])
   INCLUDE ([StoreNo], [GrandTotal])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [PurchaseOrders_IX1]
   ON [dbo].[PurchaseOrders] ([PurchaseOrderDate], [Status])
   INCLUDE ([PurchaseOrderId], [StoreNo])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
@@ -113,4 +120,21 @@ else if
 begin 
 exec SP_SaveRecentActivity 16,'PurchaseOrders',1,@PurchaseOrderIdDelete,1,'PurchaseOrderId',@ModifierIDDelete,null
 end
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO

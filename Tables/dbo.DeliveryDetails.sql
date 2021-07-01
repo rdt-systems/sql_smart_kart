@@ -31,6 +31,6 @@
   [SortOrder] [int] NULL,
   [StatusType] [nvarchar](50) NULL,
   [PaidString] [nvarchar](50) NULL,
-  CONSTRAINT [PK_DeliveryDetails] PRIMARY KEY CLUSTERED ([DeliveryDetailID])
+  CONSTRAINT [PK_DeliveryDetails] PRIMARY KEY CLUSTERED ([DeliveryDetailID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

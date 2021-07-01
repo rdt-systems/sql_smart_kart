@@ -20,11 +20,12 @@
   [UserModified] [uniqueidentifier] NULL,
   [TransferedToBookkeeping] [bit] NULL,
   [QBNumber] [nvarchar](50) NULL,
-  CONSTRAINT [PK_Bill] PRIMARY KEY NONCLUSTERED ([BillID])
+  CONSTRAINT [PK_Bill] PRIMARY KEY NONCLUSTERED ([BillID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_Bill_Speed_001]
   ON [dbo].[Bill] ([Status])
   INCLUDE ([BillID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

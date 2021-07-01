@@ -28,6 +28,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([BatchID])
+  PRIMARY KEY CLUSTERED ([BatchID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

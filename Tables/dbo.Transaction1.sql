@@ -41,6 +41,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [VoidReason] [nvarchar](4000) NULL,
-  PRIMARY KEY CLUSTERED ([BatchID])
+  PRIMARY KEY CLUSTERED ([BatchID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

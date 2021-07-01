@@ -15,6 +15,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_PayTender] PRIMARY KEY CLUSTERED ([PayTenderID])
+  CONSTRAINT [PK_PayTender] PRIMARY KEY CLUSTERED ([PayTenderID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

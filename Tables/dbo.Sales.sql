@@ -30,6 +30,6 @@
   [ToDate] [datetime] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_Sales_SaleID] PRIMARY KEY CLUSTERED ([SaleID])
+  CONSTRAINT [PK_Sales_SaleID] PRIMARY KEY CLUSTERED ([SaleID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

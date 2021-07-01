@@ -8,6 +8,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([CreditSlipUsedID])
+  PRIMARY KEY CLUSTERED ([CreditSlipUsedID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

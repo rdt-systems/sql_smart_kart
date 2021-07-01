@@ -14,10 +14,11 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_CustomerTasks] PRIMARY KEY CLUSTERED ([TaskID])
+  CONSTRAINT [PK_CustomerTasks] PRIMARY KEY CLUSTERED ([TaskID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_CustomerTasks]
   ON [dbo].[CustomerTasks] ([CustomerID], [Status])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

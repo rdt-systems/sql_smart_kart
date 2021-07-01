@@ -3,7 +3,7 @@
   [StoreID] [uniqueidentifier] NULL,
   [QbNumber] [nvarchar](50) NULL,
   [SupplierID] [uniqueidentifier] NOT NULL,
-  CONSTRAINT [PK__QBSuppli__0D066D511E9A6CE7] PRIMARY KEY CLUSTERED ([QbSupplierID])
+  CONSTRAINT [PK__QBSuppli__0D066D511E9A6CE7] PRIMARY KEY CLUSTERED ([QbSupplierID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 

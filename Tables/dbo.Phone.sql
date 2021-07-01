@@ -5,6 +5,6 @@
   [SortOrder] [smallint] NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  PRIMARY KEY CLUSTERED ([PhoneID])
+  PRIMARY KEY CLUSTERED ([PhoneID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

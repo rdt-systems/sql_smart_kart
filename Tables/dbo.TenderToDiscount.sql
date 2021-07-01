@@ -7,6 +7,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_TenderToDiscount] PRIMARY KEY CLUSTERED ([TenderToDiscountID])
+  CONSTRAINT [PK_TenderToDiscount] PRIMARY KEY CLUSTERED ([TenderToDiscountID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -8,6 +8,6 @@
   [UserModified] [uniqueidentifier] NULL,
   [Status] [int] NULL,
   [Name] [nvarchar](50) NULL,
-  CONSTRAINT [PK_DiscountGroup] PRIMARY KEY CLUSTERED ([DiscountGroupID])
+  CONSTRAINT [PK_DiscountGroup] PRIMARY KEY CLUSTERED ([DiscountGroupID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -19,6 +19,6 @@
   [UserModified] [uniqueidentifier] NULL,
   [TransferedToBookkeeping] [bit] NULL,
   [QBNumber] [nvarchar](50) NULL,
-  CONSTRAINT [PK__Supplier__6A06D5F9535B7B45] PRIMARY KEY CLUSTERED ([SuppTenderEntryID])
+  CONSTRAINT [PK__Supplier__6A06D5F9535B7B45] PRIMARY KEY CLUSTERED ([SuppTenderEntryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

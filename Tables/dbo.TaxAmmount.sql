@@ -5,6 +5,6 @@
   [FromSum] [numeric](18, 2) NULL,
   [ToSum] [numeric](18, 2) NULL,
   [Status] [smallint] NULL,
-  PRIMARY KEY CLUSTERED ([TaxAmmountID])
+  PRIMARY KEY CLUSTERED ([TaxAmmountID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

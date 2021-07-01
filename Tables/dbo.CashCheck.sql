@@ -10,6 +10,6 @@
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [CustomerID] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_CashCheck] PRIMARY KEY CLUSTERED ([CashCheckID])
+  CONSTRAINT [PK_CashCheck] PRIMARY KEY CLUSTERED ([CashCheckID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

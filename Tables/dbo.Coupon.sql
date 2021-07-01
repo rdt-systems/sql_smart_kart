@@ -15,15 +15,17 @@
   [UserModified] [uniqueidentifier] NULL,
   [VoidReason] [nvarchar](100) NULL,
   [DateCreated] [datetime] NULL,
-  CONSTRAINT [PK_Coupon] PRIMARY KEY CLUSTERED ([CouponID]),
+  CONSTRAINT [PK_Coupon] PRIMARY KEY CLUSTERED ([CouponID]) WITH (STATISTICS_NORECOMPUTE = ON),
   CONSTRAINT [CK__Coupon__CouponNo__4D211CFD] CHECK (datalength([CouponNo])>(0))
 )
 GO
 
 CREATE INDEX [Coupon_IX1]
   ON [dbo].[Coupon] ([TransactionID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_Coupon_CouponNo_Status]
   ON [dbo].[Coupon] ([CouponNo], [Status])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

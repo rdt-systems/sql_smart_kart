@@ -35,13 +35,26 @@
   [DepartmentNo] [nvarchar](50) NULL,
   [DiscountID] [uniqueidentifier] NULL,
   [UseImageCard] [bit] NULL,
-  CONSTRAINT [PK_DepartmentStore] PRIMARY KEY CLUSTERED ([DepartmentStoreID])
+  CONSTRAINT [PK_DepartmentStore] PRIMARY KEY CLUSTERED ([DepartmentStoreID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_SubDepartments]
   ON [dbo].[DepartmentStore] ([Status])
   INCLUDE ([Name], [ParentDepartmentID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
+GO
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+CREATE trigger [Tr_DeleteDepartmentStore] on [dbo].[DepartmentStore]
+for  update
+as
+if   Update (Status) AND ((select count(0) from inserted WHERE STATUS <1) > 0)
+  begin
+    INSERT INTO DeleteRecordes (TableID, TableName, Status, DateModified, IsGuid,FieldName)
+	SELECT DepartmentStoreID, 'DepartmentStore' , Status, dbo.GetLocalDATE() , 1,'DepartmentStoreID' FROM      inserted
+  end
 GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
@@ -56,14 +69,11 @@ if   Update (Status) AND ((select count(0) from inserted WHERE STATUS <1) > 0)
   end
 GO
 
+
+
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-CREATE trigger [Tr_DeleteDepartmentStore] on [dbo].[DepartmentStore]
-for  update
-as
-if   Update (Status) AND ((select count(0) from inserted WHERE STATUS <1) > 0)
-  begin
-    INSERT INTO DeleteRecordes (TableID, TableName, Status, DateModified, IsGuid,FieldName)
-	SELECT DepartmentStoreID, 'DepartmentStore' , Status, dbo.GetLocalDATE() , 1,'DepartmentStoreID' FROM      inserted
-  end
+
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO

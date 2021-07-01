@@ -18,18 +18,32 @@
   [UserModified] [uniqueidentifier] NULL,
   [ScanID] [nvarchar](20) NULL,
   [IsLogIn] [bit] NULL CONSTRAINT [DF_Users_IsLogIn] DEFAULT (0),
-  CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([UserId])
+  CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([UserId]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [_dta_index_Users_7_1349579846__K1_2]
   ON [dbo].[Users] ([UserId])
   INCLUDE ([UserName])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE UNIQUE INDEX [idx_UserName]
   ON [dbo].[Users] ([UserName])
   WHERE ([Status]>(-1))
+  WITH (STATISTICS_NORECOMPUTE = ON)
+GO
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+CREATE trigger [Tr_DeletetUser] on [dbo].[Users]
+for  update
+as
+if   Update (Status) AND ((select count(0) from inserted WHERE STATUS <1) > 0)
+  begin
+    INSERT INTO DeleteRecordes (TableID, TableName, Status, DateModified, IsGuid,FieldName)
+	SELECT UserID, 'UserQuery' , Status, dbo.GetLocalDATE() , 1,'UserID' FROM      inserted
+  end
 GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
@@ -75,14 +89,13 @@ exec SP_SaveRecentActivity 26,'Users',1,@UserId,1,'UserId',@ModifierIDDelete,nul
 end
 GO
 
+
+
+
+
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-CREATE trigger [Tr_DeletetUser] on [dbo].[Users]
-for  update
-as
-if   Update (Status) AND ((select count(0) from inserted WHERE STATUS <1) > 0)
-  begin
-    INSERT INTO DeleteRecordes (TableID, TableName, Status, DateModified, IsGuid,FieldName)
-	SELECT UserID, 'UserQuery' , Status, dbo.GetLocalDATE() , 1,'UserID' FROM      inserted
-  end
+
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO

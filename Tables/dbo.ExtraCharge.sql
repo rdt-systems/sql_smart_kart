@@ -9,6 +9,6 @@
   [ItemStoreNo] [uniqueidentifier] NOT NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  PRIMARY KEY CLUSTERED ([ExtraChargeID])
+  PRIMARY KEY CLUSTERED ([ExtraChargeID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

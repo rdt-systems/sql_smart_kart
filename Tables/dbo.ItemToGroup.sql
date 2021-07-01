@@ -4,23 +4,26 @@
   [ItemStoreID] [uniqueidentifier] NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  CONSTRAINT [PK_ItemToGroup] PRIMARY KEY CLUSTERED ([ItemToGroupID])
+  CONSTRAINT [PK_ItemToGroup] PRIMARY KEY CLUSTERED ([ItemToGroupID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [_dta_index_ItemToGroup_5_290100074__K3_K2_4]
   ON [dbo].[ItemToGroup] ([ItemStoreID], [ItemGroupID])
   INCLUDE ([Status])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_ItemToGroup_ItemGroupID_Status]
   ON [dbo].[ItemToGroup] ([ItemGroupID], [Status])
   INCLUDE ([DateModified], [ItemStoreID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_ItemToGroup_Status_DateModified]
   ON [dbo].[ItemToGroup] ([Status], [DateModified])
   INCLUDE ([ItemGroupID], [ItemStoreID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 ALTER TABLE [dbo].[ItemToGroup] WITH NOCHECK

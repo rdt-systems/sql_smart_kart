@@ -10,6 +10,6 @@
   [Status] [smallint] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_RegisterKeys] PRIMARY KEY CLUSTERED ([RegisterKeyID])
+  CONSTRAINT [PK_RegisterKeys] PRIMARY KEY CLUSTERED ([RegisterKeyID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

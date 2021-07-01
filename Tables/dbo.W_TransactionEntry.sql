@@ -27,6 +27,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_W_TransactionEntry] PRIMARY KEY CLUSTERED ([TransactionEntryID])
+  CONSTRAINT [PK_W_TransactionEntry] PRIMARY KEY CLUSTERED ([TransactionEntryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

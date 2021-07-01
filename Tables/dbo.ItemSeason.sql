@@ -4,6 +4,6 @@
   [SeasonNo] [uniqueidentifier] NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  CONSTRAINT [PK_ItemSeason] PRIMARY KEY CLUSTERED ([ItemStoreSeasonId])
+  CONSTRAINT [PK_ItemSeason] PRIMARY KEY CLUSTERED ([ItemStoreSeasonId]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

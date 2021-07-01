@@ -12,6 +12,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_ResellersCommissions] PRIMARY KEY CLUSTERED ([CommissionID])
+  CONSTRAINT [PK_ResellersCommissions] PRIMARY KEY CLUSTERED ([CommissionID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

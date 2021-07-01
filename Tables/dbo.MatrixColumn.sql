@@ -4,7 +4,7 @@
   [ColumnName] [nvarchar](50) NOT NULL,
   [SortOrder] [int] NULL,
   [Status] [smallint] NULL,
-  CONSTRAINT [PK_MatrixColumn] PRIMARY KEY CLUSTERED ([MatrixColumnID])
+  CONSTRAINT [PK_MatrixColumn] PRIMARY KEY CLUSTERED ([MatrixColumnID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 

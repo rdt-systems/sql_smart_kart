@@ -7,6 +7,6 @@
   [TenderID] [int] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_SaleToTender] PRIMARY KEY CLUSTERED ([SaleToTenderID])
+  CONSTRAINT [PK_SaleToTender] PRIMARY KEY CLUSTERED ([SaleToTenderID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

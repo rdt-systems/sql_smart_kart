@@ -7,6 +7,6 @@
   [SortOrder] [smallint] NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  PRIMARY KEY CLUSTERED ([EmailID])
+  PRIMARY KEY CLUSTERED ([EmailID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

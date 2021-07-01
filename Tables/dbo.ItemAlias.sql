@@ -7,12 +7,13 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_ItemAlias] PRIMARY KEY CLUSTERED ([AliasId])
+  CONSTRAINT [PK_ItemAlias] PRIMARY KEY CLUSTERED ([AliasId]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [ix_ItemAlias_1]
   ON [dbo].[ItemAlias] ([ItemNo], [Status])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
@@ -30,4 +31,9 @@ IF update (Status) AND ((select count(0) from inserted WHERE STATUS >0) > 0)
 Begin
 Delete From DeleteRecordes Where TableID IN (Select CONVERT(nvarchar(50),BarcodeNumber) From inserted)
 End
+GO
+
+
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO

@@ -11,10 +11,11 @@
   [Emeil] [nvarchar](20) NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  PRIMARY KEY CLUSTERED ([CustomerContactID])
+  PRIMARY KEY CLUSTERED ([CustomerContactID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_CustomerContact]
   ON [dbo].[CustomerContact] ([CustomerID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

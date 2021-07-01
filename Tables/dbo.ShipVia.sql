@@ -5,6 +5,6 @@
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([ShipViaID])
+  PRIMARY KEY CLUSTERED ([ShipViaID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

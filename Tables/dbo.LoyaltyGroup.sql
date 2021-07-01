@@ -4,6 +4,6 @@
   [Points] [int] NULL,
   [DateModified] [datetime] NULL,
   [Status] [int] NULL,
-  CONSTRAINT [PK_LoyaltyGroup] PRIMARY KEY CLUSTERED ([LoyaltyGroupID])
+  CONSTRAINT [PK_LoyaltyGroup] PRIMARY KEY CLUSTERED ([LoyaltyGroupID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

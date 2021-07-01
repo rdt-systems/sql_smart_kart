@@ -14,20 +14,23 @@
   [ActionSum] [money] NULL,
   [Description] [nvarchar](50) NULL,
   [Info] [nvarchar](300) NULL,
-  CONSTRAINT [PK_Actions] PRIMARY KEY CLUSTERED ([ActionID])
+  CONSTRAINT [PK_Actions] PRIMARY KEY CLUSTERED ([ActionID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_Actions_1]
   ON [dbo].[Actions] ([BatchID], [ActionType], [ActionDate], [TransactionID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_Actions_2]
   ON [dbo].[Actions] ([ActionType])
   INCLUDE ([ActionID], [ActionDate], [UserID], [TransactionID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_RecentActivity_Actions]
   ON [dbo].[Actions] ([ActionType])
   INCLUDE ([ActionDate], [UserID], [TransactionID], [RegisterID], [ActionSum], [Info])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

@@ -8,6 +8,6 @@
   [SortOrder] [smallint] NULL,
   [Status] [smallint] NULL,
   [DateModified] [datetime] NULL,
-  PRIMARY KEY CLUSTERED ([SuplierContactID])
+  PRIMARY KEY CLUSTERED ([SuplierContactID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

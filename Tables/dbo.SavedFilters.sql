@@ -9,6 +9,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([FilterID])
+  PRIMARY KEY CLUSTERED ([FilterID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

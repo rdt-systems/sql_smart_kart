@@ -9,6 +9,6 @@
   [PickUpCount] [int] NULL,
   [SortOrder] [int] NULL,
   [Note] [nvarchar](150) NULL,
-  CONSTRAINT [PK_BatchRec] PRIMARY KEY CLUSTERED ([BatchRecID])
+  CONSTRAINT [PK_BatchRec] PRIMARY KEY CLUSTERED ([BatchRecID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

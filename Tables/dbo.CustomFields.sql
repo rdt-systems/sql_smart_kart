@@ -4,6 +4,6 @@
   [CustomFieldType] [varchar](50) NULL,
   [LinkToTable] [varchar](50) NULL,
   [SortOrder] [smallint] NULL,
-  PRIMARY KEY CLUSTERED ([CustomFieldID])
+  PRIMARY KEY CLUSTERED ([CustomFieldID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

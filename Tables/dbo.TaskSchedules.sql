@@ -11,6 +11,6 @@
   [ExitCode] [nvarchar](20) NULL,
   [ProcessName] [nvarchar](50) NULL,
   [ProcessID] [int] NULL,
-  CONSTRAINT [PK_TaskSchedules] PRIMARY KEY CLUSTERED ([ID])
+  CONSTRAINT [PK_TaskSchedules] PRIMARY KEY CLUSTERED ([ID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

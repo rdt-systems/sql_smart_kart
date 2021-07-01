@@ -6,6 +6,6 @@
   [Status] [int] NOT NULL CONSTRAINT [DF_PriorityLevels_Status] DEFAULT (1),
   [DateModified] [datetime] NULL,
   [StoreName] [nvarchar](100) NULL,
-  CONSTRAINT [PK_PriorityLevels] PRIMARY KEY CLUSTERED ([PriorityID])
+  CONSTRAINT [PK_PriorityLevels] PRIMARY KEY CLUSTERED ([PriorityID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -7,6 +7,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [StoreID] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([ClubID])
+  PRIMARY KEY CLUSTERED ([ClubID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

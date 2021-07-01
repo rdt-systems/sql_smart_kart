@@ -12,6 +12,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([WorkerScheduleID])
+  PRIMARY KEY CLUSTERED ([WorkerScheduleID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

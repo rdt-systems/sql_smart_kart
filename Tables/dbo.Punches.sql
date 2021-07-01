@@ -15,6 +15,6 @@
   [Holiday] [decimal](18, 2) NULL,
   [OverTime] [decimal](18, 2) NULL,
   [Sick] [decimal](18, 2) NULL,
-  CONSTRAINT [PK_Punches] PRIMARY KEY CLUSTERED ([PunchID])
+  CONSTRAINT [PK_Punches] PRIMARY KEY CLUSTERED ([PunchID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

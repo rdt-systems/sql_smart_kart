@@ -8,7 +8,7 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_CustomerMemberCards] PRIMARY KEY CLUSTERED ([CardID])
+  CONSTRAINT [PK_CustomerMemberCards] PRIMARY KEY CLUSTERED ([CardID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 

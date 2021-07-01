@@ -5,6 +5,6 @@
   [errors] [text] NULL,
   [time] [datetime] NOT NULL,
   [result] [tinyint] NULL,
-  CONSTRAINT [PK_SQLImportLog] PRIMARY KEY CLUSTERED ([id])
+  CONSTRAINT [PK_SQLImportLog] PRIMARY KEY CLUSTERED ([id]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

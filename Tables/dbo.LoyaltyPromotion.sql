@@ -19,6 +19,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [AutoAssign] [bit] NULL,
-  CONSTRAINT [PK_LoyaltyPromotion] PRIMARY KEY CLUSTERED ([LoyaltyPromotionID])
+  CONSTRAINT [PK_LoyaltyPromotion] PRIMARY KEY CLUSTERED ([LoyaltyPromotionID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

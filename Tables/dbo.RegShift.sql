@@ -30,10 +30,11 @@
   [CloseNickels] [int] NULL,
   [ClosePennies] [int] NULL,
   [CloseOther] [decimal] NULL,
-  CONSTRAINT [PK_RegShift] PRIMARY KEY CLUSTERED ([RegShiftID])
+  CONSTRAINT [PK_RegShift] PRIMARY KEY CLUSTERED ([RegShiftID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_RegShift_ShiftNO]
   ON [dbo].[RegShift] ([ShiftNO])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

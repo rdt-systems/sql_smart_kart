@@ -9,6 +9,6 @@
   [Status] [int] NOT NULL,
   [GiftRegisteryNo] [nvarchar](50) NULL,
   [EventName] [nvarchar](50) NULL,
-  CONSTRAINT [PK_GiftRegistery] PRIMARY KEY CLUSTERED ([GiftRegisteryID])
+  CONSTRAINT [PK_GiftRegistery] PRIMARY KEY CLUSTERED ([GiftRegisteryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

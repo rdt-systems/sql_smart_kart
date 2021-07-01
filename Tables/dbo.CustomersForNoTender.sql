@@ -7,10 +7,11 @@
   [TenderId] [int] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([CustomersForNoTenderID])
+  PRIMARY KEY CLUSTERED ([CustomersForNoTenderID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_CustomersForNoTender]
   ON [dbo].[CustomersForNoTender] ([CustomerId], [TenderId])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO

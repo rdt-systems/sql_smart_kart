@@ -27,38 +27,44 @@
   [SeasonID] [uniqueidentifier] NULL,
   [UserEditing] [uniqueidentifier] NULL,
   [StartEditing] [datetime] NULL,
-  CONSTRAINT [PK_ReceiveOrder] PRIMARY KEY CLUSTERED ([ReceiveID])
+  CONSTRAINT [PK_ReceiveOrder] PRIMARY KEY CLUSTERED ([ReceiveID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_ReceiveInfo]
   ON [dbo].[ReceiveOrder] ([Status])
   INCLUDE ([SupplierNo], [ReceiveOrderDate])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_ReceiveInfo_1]
   ON [dbo].[ReceiveOrder] ([SupplierNo])
   INCLUDE ([DateCreated], [UserCreated], [DateModified], [UserModified])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_ReceiveOrder_Dashboard01]
   ON [dbo].[ReceiveOrder] ([ReceiveOrderDate], [Status])
   INCLUDE ([StoreID], [Total])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_ReceiveOrder_Speed_001]
   ON [dbo].[ReceiveOrder] ([Status])
   INCLUDE ([BillID], [ReceiveOrderDate])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_ReciveOrder_Speed_0002]
   ON [dbo].[ReceiveOrder] ([BillID], [Status])
   INCLUDE ([ReceiveOrderDate])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [ReceiveOrder_IX1]
   ON [dbo].[ReceiveOrder] ([ReceiveID], [StoreID], [ReceiveOrderDate], [Status])
   INCLUDE ([Total])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
@@ -104,4 +110,19 @@ else if
 begin 
 exec SP_SaveRecentActivity 20,'ReceiveOrder',1,@ReceiveIDDelete,1,'ReceiveID',@ModifierIDDelete,null
 end
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO

@@ -9,6 +9,6 @@
   [UserModified] [uniqueidentifier] NULL,
   [Qty] [int] NULL,
   [StoreID] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_PrintLabels] PRIMARY KEY CLUSTERED ([PrintLabelsID])
+  CONSTRAINT [PK_PrintLabels] PRIMARY KEY CLUSTERED ([PrintLabelsID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

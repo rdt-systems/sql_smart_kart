@@ -5,6 +5,6 @@
   [Assigned] [char](30) NULL,
   [Status] [int] NULL,
   [Note] [char](1000) NULL,
-  CONSTRAINT [PK_Delivery] PRIMARY KEY CLUSTERED ([DeliveryID])
+  CONSTRAINT [PK_Delivery] PRIMARY KEY CLUSTERED ([DeliveryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

@@ -6,6 +6,6 @@
   [DateModified] [datetime] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([TransactionID])
+  PRIMARY KEY CLUSTERED ([TransactionID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

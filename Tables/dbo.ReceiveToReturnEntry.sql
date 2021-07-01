@@ -7,6 +7,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([ReturnToVenderEntryID])
+  PRIMARY KEY CLUSTERED ([ReturnToVenderEntryID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

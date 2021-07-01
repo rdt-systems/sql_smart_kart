@@ -14,6 +14,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_SaleToCustomer] PRIMARY KEY CLUSTERED ([SaleToCustomerID])
+  CONSTRAINT [PK_SaleToCustomer] PRIMARY KEY CLUSTERED ([SaleToCustomerID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

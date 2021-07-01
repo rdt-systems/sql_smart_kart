@@ -18,7 +18,7 @@
   [NextExecute] [datetime] NULL,
   [StartTime] [datetime] NULL,
   [WeeklyInterval] [nvarchar](10) NULL,
-  CONSTRAINT [PK_ScheduleReports] PRIMARY KEY CLUSTERED ([ID])
+  CONSTRAINT [PK_ScheduleReports] PRIMARY KEY CLUSTERED ([ID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 

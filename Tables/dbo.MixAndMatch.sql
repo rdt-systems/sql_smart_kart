@@ -12,6 +12,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_MixAndMatch] PRIMARY KEY CLUSTERED ([MixAndMatchID])
+  CONSTRAINT [PK_MixAndMatch] PRIMARY KEY CLUSTERED ([MixAndMatchID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

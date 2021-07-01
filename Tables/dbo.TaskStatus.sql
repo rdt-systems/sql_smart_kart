@@ -3,6 +3,6 @@
   [TaskDate] [datetime] NULL,
   [IsEnd] [bit] NULL,
   [Error] [nvarchar](1000) NULL,
-  PRIMARY KEY CLUSTERED ([TaskID])
+  PRIMARY KEY CLUSTERED ([TaskID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

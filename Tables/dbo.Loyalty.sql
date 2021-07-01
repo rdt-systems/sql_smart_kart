@@ -7,13 +7,14 @@
   [Status] [int] NULL,
   [TransactionID] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
-  CONSTRAINT [PK_Loyalty] PRIMARY KEY CLUSTERED ([LoyaltyID])
+  CONSTRAINT [PK_Loyalty] PRIMARY KEY CLUSTERED ([LoyaltyID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [_dta_index_Loyalty_7_1826105546__K2_K6_1]
   ON [dbo].[Loyalty] ([CustomerID], [Status])
   INCLUDE ([AvailPoints])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 ALTER TABLE [dbo].[Loyalty]

@@ -12,6 +12,6 @@
   [SupplierID] [uniqueidentifier] NULL,
   [UserCreated] [uniqueidentifier] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_SalesBaskets_BasketID] PRIMARY KEY CLUSTERED ([BasketID])
+  CONSTRAINT [PK_SalesBaskets_BasketID] PRIMARY KEY CLUSTERED ([BasketID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

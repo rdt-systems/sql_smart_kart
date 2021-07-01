@@ -5,6 +5,6 @@
   [SystemTableNo] [bigint] NOT NULL,
   [SystemValueNameHe] [nvarchar](50) NULL,
   [DateModified] [datetime] NULL,
-  CONSTRAINT [PK_SystemValues] PRIMARY KEY CLUSTERED ([SystemValueNo], [SystemTableNo])
+  CONSTRAINT [PK_SystemValues] PRIMARY KEY CLUSTERED ([SystemValueNo], [SystemTableNo]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

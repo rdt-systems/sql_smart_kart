@@ -1,7 +1,5 @@
 ﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-
-
 CREATE VIEW [dbo].[LocalTransaction]
 AS
 SELECT        [Transaction].Status, [Transaction].TransactionID, [Transaction].Credit AS SaleAmount, [Transaction].Debit AS PaidAmount, [Transaction].Tax, [Transaction].TransactionNo, [Transaction].ShipTo, [Transaction].StartSaleTime, 
@@ -21,7 +19,7 @@ FROM            [Transaction] LEFT OUTER JOIN
                          Customer ON [Transaction].CustomerID = Customer.CustomerID LEFT OUTER JOIN
                          Registers ON [Transaction].RegisterID = Registers.RegisterID LEFT OUTER JOIN
                          Users ON [Transaction].UserCreated = Users.UserId LEFT OUTER JOIN
-                             (SELECT TransactionID, SUM(ISNULL(Qty,0)) AS TotalSale , SUM(ISNULL(ReturnedQty,0)) AS TotalReturn From ReturnedQtyView
+                             (SELECT TransactionID, SUM(IIF(ISNULL(Qty,0)>0,ISNULL(Qty,0),0)) AS TotalSale , SUM(ISNULL(ReturnedQty,0)) AS TotalReturn From ReturnedQtyView
 GROUP BY TransactionID) AS [Returns] ON [Transaction].TransactionID = [Returns].TransactionID
 WHERE        ([Transaction].Status > 0) AND (DATEDIFF(DAY, [Transaction].StartSaleTime, dbo.GetLocalDate()) < 60)
 GO

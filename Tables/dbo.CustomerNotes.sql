@@ -8,12 +8,13 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  CONSTRAINT [PK_CustomerNotes] PRIMARY KEY CLUSTERED ([NoteID])
+  CONSTRAINT [PK_CustomerNotes] PRIMARY KEY CLUSTERED ([NoteID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_CustomerNotes]
   ON [dbo].[CustomerNotes] ([CustomerID], [Status], [DateCreated], [NoteID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
@@ -26,4 +27,9 @@ if   Update (Status) AND ((select count(0) from inserted WHERE STATUS <1) > 0)
     INSERT INTO DeleteRecordes (TableID, TableName, Status, DateModified, IsGuid,FieldName)
 	SELECT NoteID, 'CustomerNotesPOS' , Status, dbo.GetLocalDATE() , 1,'NoteID' FROM      inserted
   end
+GO
+
+
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO

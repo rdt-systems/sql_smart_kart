@@ -11,6 +11,6 @@
   [Qty] [decimal](19, 3) NULL,
   [IsSpecialPrice] [bit] NULL,
   [Taxable] [bit] NULL,
-  PRIMARY KEY CLUSTERED ([RecID])
+  PRIMARY KEY CLUSTERED ([RecID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

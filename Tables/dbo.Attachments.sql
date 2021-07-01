@@ -9,6 +9,6 @@
   [UserCreated] [uniqueidentifier] NULL,
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
-  PRIMARY KEY CLUSTERED ([AttachmentID])
+  PRIMARY KEY CLUSTERED ([AttachmentID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO

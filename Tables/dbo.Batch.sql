@@ -37,22 +37,25 @@
   [DateModified] [datetime] NULL,
   [UserModified] [uniqueidentifier] NULL,
   [BatchText] [ntext] NULL,
-  CONSTRAINT [PK_Batch] PRIMARY KEY CLUSTERED ([BatchID])
+  CONSTRAINT [PK_Batch] PRIMARY KEY CLUSTERED ([BatchID]) WITH (STATISTICS_NORECOMPUTE = ON)
 )
 GO
 
 CREATE INDEX [IX_Batch_BatchNumber]
   ON [dbo].[Batch] ([BatchNumber])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_Batch_CashierID_BatchStatus]
   ON [dbo].[Batch] ([CashierID], [BatchStatus])
   INCLUDE ([BatchNumber], [RegisterID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 CREATE INDEX [IX_Batch_CashierID_BatchStatus_OpeningDateTime]
   ON [dbo].[Batch] ([CashierID], [BatchStatus], [OpeningDateTime])
   INCLUDE ([BatchNumber], [RegisterID])
+  WITH (STATISTICS_NORECOMPUTE = ON)
 GO
 
 SET QUOTED_IDENTIFIER, ANSI_NULLS ON
@@ -85,4 +88,13 @@ AS
 --                           GROUP BY dbo.[Transaction].BatchID, dbo.TenderEntry.TenderID) AS tendertotals ON tendertotals.Tender = dbo.Tender.TenderID
                             
 --END
+GO
+
+
+
+
+
+
+
+SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
