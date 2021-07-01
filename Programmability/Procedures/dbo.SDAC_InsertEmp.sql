@@ -1,0 +1,14 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE PROCEDURE [dbo].[SDAC_InsertEmp]  
+	@ENAME	nvarchar(20),
+	@JOB	nvarchar(10)
+AS
+	INSERT INTO 
+		EMP (ENAME, JOB) 
+	VALUES
+		(@ENAME, @JOB) 
+	RETURN @@Identity;
+GO

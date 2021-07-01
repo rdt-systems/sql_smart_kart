@@ -1,0 +1,3 @@
+﻿CREATE USER [SulemanAltaf]
+  WITHOUT LOGIN
+GO

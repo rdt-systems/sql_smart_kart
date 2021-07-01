@@ -1,0 +1,17 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+CREATE FUNCTION [dbo].[GetLocalDate]
+(
+
+)
+
+RETURNS DATETIME
+with schemabinding
+AS
+
+BEGIN
+
+    RETURN CONVERT(datetime, SYSDATETIMEOFFSET() AT TIME ZONE 'Eastern Standard Time')
+
+END
+GO

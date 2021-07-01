@@ -1,0 +1,31 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE PROCEDURE [dbo].[ClosePO]
+AS
+Declare @POID uniqueidentifier
+
+DECLARE MyPo CURSOR FORWARD_ONLY STATIC OPTIMISTIC FOR
+
+SELECT        PurchaseOrderId
+FROM            PurchaseOrdersView WHERE        (POStatus <> 2) And OpenItemsCount = 0
+
+
+OPEN MyPo
+
+FETCH NEXT FROM MyPo
+INTO @POID
+
+
+WHILE  @@FETCH_STATUS = 0
+BEGIN
+	Exec ClosePurchaseOrder @POID, '00000000-0000-0000-0000-000000000000'
+
+	FETCH NEXT FROM MyPo
+	INTO @POID
+END
+
+CLOSE MyPo
+DEALLOCATE MyPo
+GO

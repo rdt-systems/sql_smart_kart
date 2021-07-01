@@ -1,0 +1,13 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE PROCEDURE [dbo].[Ten Most High-Paid Employees] AS
+BEGIN
+    SET ROWCOUNT 10
+    SELECT Emp.EName AS TenMostHighPaidEmployees, Emp.SAL
+        FROM Emp
+        ORDER BY Emp.SAL DESC
+    SET ROWCOUNT 0
+END;
+GO

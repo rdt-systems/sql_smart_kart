@@ -1,0 +1,3 @@
+﻿CREATE USER [SelfPoint]
+  WITHOUT LOGIN
+GO

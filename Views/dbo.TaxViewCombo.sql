@@ -1,0 +1,9 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE VIEW [dbo].[TaxViewCombo]
+AS
+SELECT     TaxID, TaxName
+FROM         dbo.Tax
+GO

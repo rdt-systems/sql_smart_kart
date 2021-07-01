@@ -1,0 +1,3 @@
+﻿CREATE USER [armia]
+  WITHOUT LOGIN
+GO

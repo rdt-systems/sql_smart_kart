@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Emails] (
+  [EmailID] [uniqueidentifier] NOT NULL,
+  [Subject] [nvarchar](4000) NULL,
+  [Body] [ntext] NULL,
+  [From] [nvarchar](50) NULL,
+  [FromAddress] [nvarchar](50) NULL,
+  [To] [nvarchar](100) NULL,
+  [ToAddress] [nvarchar](50) NULL,
+  [DeliveryDate] [datetime] NULL,
+  [MailType] [int] NULL,
+  [MailStatus] [smallint] NULL,
+  [EmailUid] [nvarchar](4000) NULL,
+  [Attachment] [image] NULL,
+  [FileName] [nvarchar](50) NULL,
+  [Status] [smallint] NULL,
+  [DateCreated] [datetime] NULL,
+  [UserCreated] [uniqueidentifier] NULL,
+  [DateModified] [datetime] NULL,
+  [UserModified] [uniqueidentifier] NULL,
+  [ErrorMessage] [nvarchar](500) NULL,
+  [TransactionID] [uniqueidentifier] NULL,
+  [EmailText] [nvarchar](4000) NULL,
+  PRIMARY KEY CLUSTERED ([EmailID])
+)
+GO

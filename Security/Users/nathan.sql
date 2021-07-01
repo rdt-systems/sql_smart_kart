@@ -1,0 +1,3 @@
+﻿CREATE USER [nathan]
+  WITHOUT LOGIN
+GO

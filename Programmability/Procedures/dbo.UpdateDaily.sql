@@ -1,0 +1,34 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE procedure [dbo].[UpdateDaily]
+as
+
+Exec dbo.DailyUpdate
+Exec dbo.OnHandUpdate
+
+
+DECLARE @ID uniqueidentifier
+
+DECLARE c1 CURSOR FORWARD_ONLY STATIC OPTIMISTIC FOR
+SELECT StoreID
+FROM   dbo.Store 
+WHERE  Status>0
+
+OPEN c1
+
+FETCH NEXT FROM c1 
+INTO @ID
+
+WHILE @@FETCH_STATUS = 0
+	BEGIN
+		Exec dbo.UpdateMYPTD @ID
+
+		FETCH NEXT FROM c1  
+		INTO @ID
+	END
+
+CLOSE c1
+DEALLOCATE c1
+GO

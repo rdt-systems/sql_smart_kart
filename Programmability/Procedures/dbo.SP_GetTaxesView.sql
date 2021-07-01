@@ -1,0 +1,8 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE PROCEDURE [dbo].[SP_GetTaxesView]
+AS SELECT     dbo.Taxes.*
+FROM         dbo.Taxes
+GO

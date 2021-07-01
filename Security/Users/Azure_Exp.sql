@@ -1,0 +1,3 @@
+﻿CREATE USER [Azure_Exp]
+  WITHOUT LOGIN
+GO

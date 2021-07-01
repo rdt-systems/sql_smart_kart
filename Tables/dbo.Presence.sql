@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Presence] (
+  [PresenceID] [int] IDENTITY,
+  [PreDate] [datetime] NULL,
+  [UserID] [uniqueidentifier] NULL,
+  [Login1] [datetime] NULL,
+  [Logout1] [datetime] NULL,
+  [Login2] [datetime] NULL,
+  [Logout2] [datetime] NULL,
+  [Login3] [datetime] NULL,
+  [Logout3] [datetime] NULL,
+  [Login4] [datetime] NULL,
+  [Logout4] [datetime] NULL,
+  [Login5] [datetime] NULL,
+  [Logout5] [datetime] NULL,
+  [Login6] [datetime] NULL,
+  [Logout6] [datetime] NULL,
+  [RegisterID] [uniqueidentifier] NULL,
+  [ComputerID] [uniqueidentifier] NULL,
+  [StoreID] [uniqueidentifier] NULL,
+  [Status] [smallint] NULL,
+  [DateCreated] [datetime] NULL,
+  [UserCreated] [uniqueidentifier] NULL,
+  [DateModified] [datetime] NULL,
+  [UserModified] [uniqueidentifier] NULL,
+  CONSTRAINT [PK__Presence__4980E84336F58766] PRIMARY KEY CLUSTERED ([PresenceID])
+)
+GO

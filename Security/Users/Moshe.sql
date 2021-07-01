@@ -1,0 +1,3 @@
+﻿CREATE USER [Moshe]
+  WITHOUT LOGIN
+GO

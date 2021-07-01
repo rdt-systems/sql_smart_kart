@@ -1,0 +1,9 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+CREATE VIEW [dbo].[PreSaleStoreIDs]
+
+AS
+
+Select StoreID, CONVERT(uniqueidentifier, CASE WHEN OptionValue = '0' OR LEN(OptionValue) <> 36 THEN '00000000-0000-0000-0000-000000000000' ELSE OptionValue END) AS PreSaleID from SetUpValues Where OptionID = 796 And StoreID <> '00000000-0000-0000-0000-000000000000'
+GO

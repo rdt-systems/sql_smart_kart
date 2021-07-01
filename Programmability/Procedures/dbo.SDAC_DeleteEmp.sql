@@ -1,0 +1,13 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE PROCEDURE [dbo].[SDAC_DeleteEmp]  
+	@EMPNO	int,
+	@Result	int OUTPUT
+AS
+	DELETE Emp
+	WHERE
+		EmpNO = @EmpNO
+	SET @Result = @EmpNO + 2;
+GO

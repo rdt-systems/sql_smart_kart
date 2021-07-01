@@ -1,0 +1,10 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+	   
+CREATE PROCEDURE [dbo].[SP_GetBatchView] 
+
+AS
+	
+SELECT *
+FROM  [BatchView]
+GO

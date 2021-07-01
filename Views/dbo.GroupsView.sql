@@ -1,0 +1,10 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE  VIEW [dbo].[GroupsView]
+AS
+SELECT     dbo.Groups.*
+FROM         dbo.Groups
+WHERE RTRIM(GROUPNAME) <>''
+GO

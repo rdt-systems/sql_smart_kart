@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Tender] (
+  [TenderID] [int] NOT NULL,
+  [TenderGroup] [int] NULL,
+  [SortOrder] [smallint] NULL,
+  [TenderType] [int] NULL,
+  [TenderName] [nvarchar](50) NULL,
+  [TenderNameHe] [nvarchar](50) NULL,
+  [TenderDescription] [varchar](4000) NULL,
+  [RequiresCustomer] [bit] NULL,
+  [AllowDiscount] [bit] NULL,
+  [FillByPressEnter] [bit] NULL,
+  [OpenDrawer] [bit] NULL,
+  [MinimumAmount] [int] NULL,
+  [IsSystem] [bit] NULL CONSTRAINT [DF_Tender_IsSystem] DEFAULT (0),
+  [Status] [smallint] NULL,
+  [DateCreated] [datetime] NULL,
+  [UserCreated] [uniqueidentifier] NULL,
+  [DateModified] [datetime] NULL,
+  [UserModified] [uniqueidentifier] NULL,
+  [GivePoints] [bit] NULL,
+  [OverTender] [bit] NULL,
+  [AllowMinus] [bit] NULL,
+  [NoChange] [bit] NULL,
+  [ShowOnPhoneOrder] [bit] NULL,
+  [ShowOnShift] [bit] NULL,
+  CONSTRAINT [PK_Tender] PRIMARY KEY CLUSTERED ([TenderID]) WITH (STATISTICS_NORECOMPUTE = ON)
+)
+GO

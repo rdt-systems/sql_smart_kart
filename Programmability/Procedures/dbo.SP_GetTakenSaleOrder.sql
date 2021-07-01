@@ -1,0 +1,11 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE PROCEDURE [dbo].[SP_GetTakenSaleOrder]
+
+AS
+	SELECT WorkOrderID,WONo 
+	FROM dbo.WorkOrderView
+	WHERE status=1 AND WOStatus<1
+GO

@@ -1,0 +1,3 @@
+﻿CREATE USER [kukhtinigor]
+  WITHOUT LOGIN
+GO

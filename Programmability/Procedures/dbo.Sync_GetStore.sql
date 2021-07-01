@@ -1,0 +1,11 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE PROCEDURE [dbo].[Sync_GetStore]
+
+as
+SELECT TOP 1 StoreID
+FROM Store
+WHERE Status>-1
+GO

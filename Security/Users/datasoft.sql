@@ -1,0 +1,3 @@
+﻿CREATE USER [datasoft]
+  WITHOUT LOGIN
+GO

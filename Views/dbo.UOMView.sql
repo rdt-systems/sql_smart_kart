@@ -1,0 +1,9 @@
+﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+
+
+CREATE VIEW [dbo].[UOMView]
+AS
+SELECT     dbo.UOM.*
+FROM         dbo.UOM
+GO

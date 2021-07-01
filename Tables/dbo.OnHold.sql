@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[OnHold] (
+  [OnHoldID] [uniqueidentifier] NOT NULL,
+  [CustomerID] [uniqueidentifier] NULL,
+  [CustomerName] [nchar](200) NULL,
+  [PhoneOrder] [bit] NULL,
+  [Note] [nvarchar](4000) NULL,
+  [SaleStartDate] [datetime] NULL,
+  [PriceLevel] [int] NULL,
+  [TaxRate] [money] NULL,
+  [OnHoldDate] [datetime] NULL,
+  [RegisterID] [uniqueidentifier] NULL,
+  [UserID] [uniqueidentifier] NULL,
+  [TaxID] [uniqueidentifier] NULL,
+  [Comment] [nvarchar](200) NULL,
+  [Total] [money] NULL,
+  [Taxable] [bit] NULL,
+  [SaleNo] [nvarchar](50) NULL,
+  [ApprovedBY] [uniqueidentifier] NULL,
+  [ShippingID] [uniqueidentifier] NULL,
+  [StoreID] [uniqueidentifier] NULL,
+  [SaleAssociateID] [uniqueidentifier] NULL,
+  [TransNo] [nvarchar](50) NULL,
+  [Qty] [decimal] NULL,
+  [TotalQty] [decimal] NULL,
+  CONSTRAINT [PK_OnHold] PRIMARY KEY CLUSTERED ([OnHoldID])
+)
+GO
