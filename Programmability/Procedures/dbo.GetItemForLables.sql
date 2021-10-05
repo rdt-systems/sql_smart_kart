@@ -132,7 +132,8 @@ SELECT DISTINCT
                          IsNull(Units, 0) > 0) THEN Price / Units ELSE NULL END) AS DisplayMeaasure, (CASE WHEN (IsNull(Price, 0) > 0 AND IsNull(Units, 0) > 0) AND (IsNull(Meaasure, 0) > 0) THEN [dbo].[ConvertMessures](Meaasure, 
                          Units, Price) ELSE '' END) AS ConvertUnitPrice, (CASE WHEN LEN(BarcodeNumber) = 12 THEN LEFT(BarcodeNumber, 11) ELSE BarcodeNumber END) AS UPCA, (CASE WHEN isnull(IsTaxable, 0) 
                          = 1 THEN '+Tax' ELSE '' END) AS PlusTax, ParentInfo.[Supplier Item Code] AS ParentCode, ItemMain.CustomerCode AS CompanyCode, ItemMain.StyleNo, Case When ISNULL(ItemStore.CasePrice,0) >0 THEN 'Reg. $' + CONVERT(nvarchar, 
-                         IsNull(CasePrice, 0), 110) + ' a Case' Else '' END as RegCasePrice, CASE WHEN ISNULL(ItemStore.IsWIC,0) = 1 THEN 'WIC' ELSE cast(ItemMain.ExtraInfo2 AS NVARCHAR(max)) END as ExtraInfo2, cast(ItemMain.ExtraInfo as nvarchar(max)) as ExtraInfo,
+                         IsNull(CasePrice, 0), 110) + ' a Case' Else '' END as RegCasePrice, CASE WHEN ISNULL(ItemStore.IsWIC,0) = 1 THEN 'WIC' ELSE cast(ItemMain.ExtraInfo2 AS NVARCHAR(max)) END as ExtraInfo2, 	
+						 CASE when ISNULL(cast(ItemMain.ExtraInfo as nvarchar(max)),'') = '' Then ItemStore.BinLocation ELSE  cast(ItemMain.ExtraInfo as nvarchar(max)) END as ExtraInfo,
 						 itemmain.[PicturePath]
 Into #ItemlableView
 FROM            ItemMain INNER JOIN
