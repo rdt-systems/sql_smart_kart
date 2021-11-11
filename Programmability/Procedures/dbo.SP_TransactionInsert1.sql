@@ -1,6 +1,5 @@
 ﻿SET QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-
 CREATE PROCEDURE [dbo].[SP_TransactionInsert1]
 (@TransactionID uniqueidentifier,
 @TransactionNo nvarchar(50),
@@ -46,8 +45,21 @@ AS
 Declare @D dateTime
 
 if ((select Count(*) from [transaction] where TransactionID=@TransactionID and Status>-1)> 0) 
+BEGIN
+	 RETURN
+END
+
+Declare @TransNo nvarchar(50)
+set @TransNo = @Transactionno
+if ((select Count(*) from [transaction] WITH (NOLOCK)  where TransactionNo=@TransNo )> 0) 
 begin
-	 return
+  set @TransNo = 'S'+@TransNo
+  update Registers set ResetID = 1 where RegisterID=@RegisterID
+end
+
+if ((select Count(*) from [transaction] WITH (NOLOCK)  where TransactionNo=@TransNo )> 0) 
+begin
+  set @TransNo = 'K'+@TransNo 
 end
 
 If (dbo.getday(@StartSaleTime) > dbo.getday(dbo.GetLocalDATE()) +2) or (DATEPART(YEAR, @StartSaleTime) < DATEPART(YEAR, dbo.GetLocalDATE()) -10)
@@ -59,7 +71,7 @@ Set @D = @StartSaleTime
 
 SET XACT_ABORT ON;
 BEGIN TRANSACTION
-if ((select Count(*) from [transaction] where TransactionNo=@TransactionNo and Status>-1)> 0) 
+if ((select Count(*) from [transaction] where TransactionNo=@TransNo and Status>-1)> 0) 
 begin
 	 RAISERROR  ('Transaction No Alredy Exists.',20,1)  --WITH LOG
 
@@ -80,7 +92,7 @@ INSERT INTO dbo.[Transaction]
 			PONo, RepID ,TermsID ,PhoneOrder,ToPrint,ToEmail,CustomerMessage,
                       	Note,ResellerID, Status,VoidReason, DateCreated, UserCreated, DateModified, UserModified,CurrBalance,RecieptTxt,registerid,RegShiftID)
 
-VALUES     		(@TransactionID, @TransactionNo, @TransactionType,@RegisterTransaction, @BatchID, @StoreID, @CustomerID,  
+VALUES     		(@TransactionID, @TransNo, @TransactionType,@RegisterTransaction, @BatchID, @StoreID, @CustomerID,  
 			isnull(round(@Debit,2),0), round(@Credit,2), @D,@EndSaleTime, @DueDate,case when @Debit<0 then @debit-@credit else @debit end,@Freight,@Tax,@TaxID,@TaxType,@TaxRate,@Rounding,  @ShipTo, @ShipVia,
 			@PONo, @RepID ,@TermsID ,@PhoneOrder,@ToPrint,@ToEmail,@CustomerMessage,
 			@Note, @ResellerID, @Status,@VoidReason, dbo.GetLocalDATE(), @ModifierID, null, null,@CurrBalance,@RecieptTxt,@registerid,@RegShiftID)
@@ -102,6 +114,9 @@ BEGIN
 	  SET @PaidDate =null
 	END
 	UPDATE Customer set BalanceDoe= (IsNull(BalanceDoe,0)+@Debit-@Credit),DateModified =dbo.GetLocalDATE(), LastSaleDate = @EndSaleTime, LastPayment =ISNULL(@Paid,LastPayment),LastPaymentDate=ISNULL(@PaidDate,LastPaymentDate) WHERE CustomerID = @CustomerID
+	IF @TransactionType=0
+	  EXEC SP_UpdateCustomerSaleInfoFromTrans @CustomerID,@Debit
+
 END
 
 if @SaleAssociateID is not null 
@@ -109,6 +124,9 @@ BEGIN
   PRINT 'YES'
   EXEC SP_SaleAssociateInsert @TransactionID =@transactionID,@SaleAssociateID=@SaleAssociateID
 END
+
+
+
 
 COMMIT TRANSACTION;
 
